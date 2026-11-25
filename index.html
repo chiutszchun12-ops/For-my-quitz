@@ -88,4 +88,183 @@ body{
 }
 
 .option:hover{
-    background
+    background:#eef5f8;
+}
+
+.option input{
+    margin-right:10px;
+}
+
+.footer{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:black;
+    padding:10px;
+    display:flex;
+    justify-content:flex-end;
+}
+
+.btn{
+    background:#7aa63d;
+    color:white;
+    border:none;
+    padding:12px 30px;
+    font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#5f842f;
+}
+
+#result{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.correct{
+    color:green;
+}
+
+.wrong{
+    color:red;
+}
+
+@media(max-width:768px){
+
+    .sidebar{
+        width:60px;
+    }
+
+    .question-title{
+        font-size:18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <div class="exam-info">
+        <div>問題：1</div>
+        <div>残り時間：15:00</div>
+    </div>
+
+    <div>規約インストラクター模擬試験</div>
+
+</div>
+
+<div class="main">
+
+    <div class="sidebar">
+
+        <div class="question-number active">1</div>
+        <div class="question-number">2</div>
+        <div class="question-number">3</div>
+
+    </div>
+
+    <div class="content">
+
+        <div class="question-box">
+
+            <div id="question" class="question-title"></div>
+
+            <div id="choices"></div>
+
+            <div id="result"></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer">
+
+    <button class="btn" onclick="checkAnswer()">
+        回答
+    </button>
+
+</div>
+
+<script>
+
+const quiz = {
+
+    question:"規約インストラクターの義務として正しいものを選択してください。",
+
+    choices:[
+        "受講者への適切な説明を行う",
+        "規約を無視して運営する",
+        "記録を破棄する",
+        "資格を第三者へ貸与する"
+    ],
+
+    answer:"受講者への適切な説明を行う"
+
+};
+
+document.getElementById("question").innerText =
+quiz.question;
+
+document.getElementById("choices").innerHTML =
+quiz.choices.map(choice =>
+
+`
+<label class="option">
+<input type="radio" name="answer" value="${choice}">
+${choice}
+</label>
+
+`
+
+).join("");
+
+function checkAnswer(){
+
+const selected =
+document.querySelector(
+'input[name="answer"]:checked'
+);
+
+if(!selected){
+
+alert("選択してください");
+
+return;
+
+}
+
+const result =
+document.getElementById("result");
+
+if(selected.value===quiz.answer){
+
+result.className="correct";
+
+result.innerHTML="〇 正解";
+
+}else{
+
+result.className="wrong";
+
+result.innerHTML=
+"× 不正解<br>正解："+quiz.answer;
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
