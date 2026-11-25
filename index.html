@@ -127,7 +127,7 @@ h1,h2{
 <div class="header">
 
 <div>
-USCPA敗者用規約インストラクター試験
+規約インストラクター試験
 </div>
 
 <div id="timer">
@@ -140,7 +140,7 @@ USCPA敗者用規約インストラクター試験
 
 <div id="home" class="card">
 
-<h1>規約インストラクター試験対策</h1>
+<h1>趙専用規約インストラクター試験対策</h1>
 
 <button class="menu-btn" onclick="startQuiz(10)">
 10問チャレンジ（通勤時）
@@ -150,12 +150,8 @@ USCPA敗者用規約インストラクター試験
 20問チャレンジ（ランチやディナー）
 </button>
 
-<button class="menu-btn" onclick="startQuiz(30)">
-30問チャレンジ（勉強したいとき）
-</button>
-
-<button class="menu-btn" onclick="startRandomQuiz()">
-ランダム25問（能力テスト）
+<button class="menu-btn" onclick="startRandomQuiz(10)">
+ランダム10問（能力テスト）
 </button>
 
 </div>
@@ -229,8 +225,8 @@ const allQuestions = [
 },
 {
   question:"規約の目的として掲げられているのは不当な顧客誘引の（　　　）である。",
-  choices:["売上向上","市場独占","不当な顧客誘引の防止","利益最大化"],
-  answer:"不当な顧客誘引の防止",
+  choices:["売上向上","市場独占","防止","利益最大化"],
+  answer:"防止",
   explanation:"公正な競争環境の維持が目的。"
 },
 {
