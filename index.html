@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>規約クイズ</title>
+</head>
+
+<body>
+
+<h1>規約クイズ</h1>
+
+<p id="question"></p>
+
+<div id="choices"></div>
+
+<button onclick="check()">回答</button>
+
+<p id="result"></p>
+
+<script>
+
+const quiz = {
+ question:"インストラクターの義務は？",
+ choices:["A","B","C","D"],
+ answer:"B"
+};
+
+document.getElementById("question").innerText
+= quiz.question;
+
+document.getElementById("choices").innerHTML
+=
+quiz.choices.map(c =>
+`<label>
+<input type="radio" name="ans" value="${c}">
+${c}
+</label><br>`
+).join("");
+
+function check(){
+
+const selected =
+document.querySelector(
+'input[name="ans"]:checked'
+);
+
+if(!selected){
+alert("選んでください");
+return;
+}
+
+if(selected.value===quiz.answer){
+document.getElementById("result")
+.innerText="正解！";
+}else{
+document.getElementById("result")
+.innerText="不正解";
+}
+
+}
+
+</script>
+
+</body>
+</html>
